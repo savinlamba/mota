@@ -20,9 +20,9 @@ public class Driver extends User {
 	@Id
 	@Column(name = "driver_id")
 	private Long driverId;
-//	@NotBlank(message = "Licence Number must not be null")
+	@NotBlank(message = "Licence Number must not be null")
 	private String licenceNO;
-//	@NotNull(message = "Rating must not be null")
+	@NotNull(message = "Rating must not be null")
 	private Float rating;
 
 //	@OneToMany

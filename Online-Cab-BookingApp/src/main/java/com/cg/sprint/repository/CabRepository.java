@@ -8,5 +8,4 @@ import com.cg.sprint.entity.Cab;
 import com.cg.sprint.entity.TripBooking;
 
 public interface CabRepository extends JpaRepository<Cab, Long>{
-//	List<TripBooking> findTripByTripBooking(Long cabId);
 }

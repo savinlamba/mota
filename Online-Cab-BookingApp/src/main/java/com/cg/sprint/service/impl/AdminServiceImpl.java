@@ -79,25 +79,23 @@ public class AdminServiceImpl implements AdminService {
 	// get trips using cab id
 	@Override
 	public List<TripBooking> getTripsCabwise(Long cabId) throws CabNotFoundException {
-//		Optional<Cab> cabOpt = cabRepository.findById(cabId);
-//		if (cabOpt.isPresent()) {
-//			return cabRepository.findTripByTripBooking(cabId);
-//		} else {
-//			throw new CabNotFoundException("No such cab found");
-//		}
-		return null;
+		Optional<Cab> cabOpt = cabRepository.findById(cabId);
+		if (cabOpt.isPresent()) {
+			return tripBookingRepository.findTripByCabCabId(cabId);
+		} else {
+			throw new CabNotFoundException("No such cab found");
+		}
 	}
 
 	// get trips using customer id
 	@Override
 	public List<TripBooking> getTripsCustomerwise(Long customerId) throws CustomerNotFoundException {
-//		Optional<Customer> custOpt = customerRepository.findById(customerId);
-//		if (custOpt.isPresent()) {
-//			return tripBookingRepository.findTripByCustomerCustomerId(customerId);
-//		} else {
-//			throw new CustomerNotFoundException("No such customer found");
-//		}
-		return null;
+		Optional<Customer> custOpt = customerRepository.findById(customerId);
+		if (custOpt.isPresent()) {
+			return tripBookingRepository.findTripByCustomerCustomerId(customerId);
+		} else {
+			throw new CustomerNotFoundException("No such customer found");
+		}
 	}
 
 	// get trips using date

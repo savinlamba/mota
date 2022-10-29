@@ -19,9 +19,9 @@ public class Cab {
 
 	@Id
 	private Long cabId;
-//	@NotBlank(message="car type must not be empty")
+	@NotBlank(message="car type must not be empty")
 	private String carType;
-//	@Positive(message="Rate per Km must be positive")
+	@Positive(message="Rate per Km must be positive")
 	private Float perKmRate;
 	@OneToOne
 	@JsonManagedReference
@@ -29,7 +29,7 @@ public class Cab {
 	@JsonIdentityReference(alwaysAsId = true)
 	private Driver driver;
 	@OneToMany(mappedBy = "cab")
-	@JsonManagedReference(value="cab")
+//	@JsonManagedReference(value="cab")
 	private List<TripBooking> tripBooking;
 
 	public Driver getDriver() {

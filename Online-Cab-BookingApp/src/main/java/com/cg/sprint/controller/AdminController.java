@@ -93,8 +93,10 @@ public class AdminController {
 	
 	//get all trips using customer id, from date and to date
 	@GetMapping("/trips/customers/{customer_id}/{from_date}/{to_date}")
-	public ResponseEntity<List<TripBooking>> getAllTripsForDays(@PathVariable("customer_id") Long customerId,@PathVariable("from_date") LocalDateTime fromDate,@PathVariable("to_date") LocalDateTime toDate) {
-		List<TripBooking> trips = adminService.getAllTripsForDays(customerId, fromDate, toDate);
+	public ResponseEntity<List<TripBooking>> getAllTripsForDays(@PathVariable("customer_id") Long customerId,@PathVariable("from_date") String fromDate,@PathVariable("to_date") String toDate) {
+		LocalDateTime fdt=LocalDateTime.parse(fromDate);
+		LocalDateTime tdt=LocalDateTime.parse(toDate);
+		List<TripBooking> trips = adminService.getAllTripsForDays(customerId, fdt, tdt);
 		ResponseEntity<List<TripBooking>> response = new ResponseEntity<>(trips, HttpStatus.OK);
 		return response;
 	}

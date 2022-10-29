@@ -5,9 +5,9 @@ import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 public abstract class User {
-//	@NotNull
+	@NotNull
 	private String username;
-//	@NotNull
+	@NotNull
 	private String password;
 	private String address;
 	private String mobileNumber;

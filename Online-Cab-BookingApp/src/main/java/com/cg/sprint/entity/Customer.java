@@ -19,17 +19,17 @@ public class Customer extends User{
 	@Column(name="customer_id")
 	private Long customerId;
 	
-//	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = "customer")
 //	@JsonManagedReference(value="customer")
-//	private List<TripBooking> tripBooking;
-//
-//	public List<TripBooking> getTripBooking() {
-//		return tripBooking;
-//	}
-//
-//	public void setTripBooking(List<TripBooking> tripBooking) {
-//		this.tripBooking = tripBooking;
-//	}
+	private List<TripBooking> tripBooking;
+
+	public List<TripBooking> getTripBooking() {
+		return tripBooking;
+	}
+
+	public void setTripBooking(List<TripBooking> tripBooking) {
+		this.tripBooking = tripBooking;
+	}
 
 	public Long getCustomerId() {
 		return customerId;

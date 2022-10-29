@@ -53,9 +53,7 @@ public class TripBookingController {
 	@PutMapping("/{cab_id}/{customer_id}")
 	public ResponseEntity<TripBooking> updateTripBooking(@RequestBody TripBooking tripBooking,
 			@PathVariable("cab_id") Long cabId, @PathVariable("customer_id") Long customerId) {
-		Optional<Cab> cab = cabRepository.findById(cabId);
-		Optional<Customer> customer = customerRepository.findById(customerId);
-		TripBooking tripBooking1 = tripBookingService.updateTripBooking(tripBooking);
+		TripBooking tripBooking1 = tripBookingService.updateTripBooking(tripBooking, cabId, customerId);
 		ResponseEntity<TripBooking> reponse = new ResponseEntity<TripBooking>(tripBooking1, HttpStatus.OK);
 		return reponse;
 	}

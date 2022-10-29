@@ -11,7 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -23,23 +24,29 @@ public class TripBooking {
 	private Long tripBookingId;
 	
 	@ManyToOne(targetEntity = Customer.class)
-	@JsonBackReference(value="customer")
+//	@JsonBackReference(value="customer")
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customerId")
 	@JsonIdentityReference(alwaysAsId = true)
 	private Customer customer;
 	
 	@ManyToOne(targetEntity = Cab.class)
-	@JsonBackReference(value="cab")
+//	@JsonBackReference(value="cab")
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "cabId")
 	@JsonIdentityReference(alwaysAsId = true)
 	private Cab cab;
 	
+	@NotNull
 	private String fromLocation;
+	@NotNull
 	private String toLocation;
+	@NotNull
 	private LocalDateTime fromDateTime;
+	@NotNull
 	private LocalDateTime toDateTime;
 	private Boolean status;
+	@NotBlank
 	private Float distanceInKm;
+	
 	private Float bill;
 
 	public Long getTripBookingId() {
